@@ -1,12 +1,12 @@
 version: '3'
 services:
   nginx:
-    build: ./nginx
+    image: nginx:alpine
     ports:
       - "80:80"
     volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/server.conf:/etc/nginx/conf.d/server.conf
   php7:
-    build: ./php7
+    image: php:7-fpm-alpine
     volumes:
       - ./www:/var/www/html
